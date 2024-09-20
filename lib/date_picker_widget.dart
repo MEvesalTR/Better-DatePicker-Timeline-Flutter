@@ -26,6 +26,9 @@ class DatePicker extends StatefulWidget {
   /// Axis Direction
   final Axis scrollDirection;
 
+  /// Physics for the ListView
+  final ScrollPhysics physics;
+
   /// Text color for the selected Date
   final Color selectedTextColor;
 
@@ -78,6 +81,7 @@ class DatePicker extends StatefulWidget {
     this.height = 80,
     this.controller,
     this.scrollDirection = Axis.horizontal,
+    this.physics = const BouncingScrollPhysics(),
     this.monthTextStyle = defaultMonthTextStyle,
     this.dayTextStyle = defaultDayTextStyle,
     this.dateTextStyle = defaultDateTextStyle,
@@ -151,9 +155,10 @@ class _DatePickerState extends State<DatePicker> {
       child: Container(
         height: widget.height,
         child: ListView.builder(
+          controller: _controller,
           itemCount: widget.daysCount,
           scrollDirection: widget.scrollDirection,
-          controller: _controller,
+          physics: widget.physics,
           itemBuilder: (context, index) {
             // get the date object based on the index position
             // if widget.startDate is null then use the initialDateValue
