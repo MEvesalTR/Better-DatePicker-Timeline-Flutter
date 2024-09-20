@@ -14,10 +14,10 @@ class DatePicker extends StatefulWidget {
   /// If not provided calendar will start from the initialSelectedDate
   final DateTime startDate;
 
-  /// Width of the selector
+  /// Width of the Selector
   final double width;
 
-  /// Height of the selector
+  /// Height of the Selector
   final double height;
 
   /// DatePicker Controller
@@ -32,32 +32,32 @@ class DatePicker extends StatefulWidget {
   /// Padding for the Date Widget
   final EdgeInsets padding;
 
-  /// Decoration for the selected Date
+  /// Decoration for the Selected Date
   final BoxDecoration decoration;
 
-  /// Text color for the selected Date
+  /// Text Color for the Selected Date
   final Color selectedTextColor;
 
-  /// Text Color for the deactivated dates
-  final Color deactivatedColor;
+  /// Text Color for the Deactivated dates
+  final Color deactivatedTextColor;
 
   /// TextStyle for Month Value
   final TextStyle monthTextStyle;
 
-  /// TextStyle for day Value
+  /// TextStyle for Day Value
   final TextStyle dayTextStyle;
 
-  /// TextStyle for the date Value
+  /// TextStyle for the Date Value
   final TextStyle dateTextStyle;
 
   /// Current Selected Date
   final DateTime? /*?*/ initialSelectedDate;
 
-  /// Contains the list of inactive dates.
+  /// Contains the list of Inactive Dates.
   /// All the dates defined in this List will be deactivated
   final List<DateTime>? inactiveDates;
 
-  /// Contains the list of active dates.
+  /// Contains the list of Active Dates.
   /// Only the dates in this list will be activated.
   final List<DateTime>? activeDates;
 
@@ -94,7 +94,7 @@ class DatePicker extends StatefulWidget {
       borderRadius: const BorderRadius.all(Radius.circular(8.0)),
       color: AppColors.defaultSelectionColor,
     ),
-    this.deactivatedColor = AppColors.defaultDeactivatedColor,
+    this.deactivatedTextColor = AppColors.defaultDeactivatedColor,
     this.initialSelectedDate,
     this.activeDates,
     this.inactiveDates,
@@ -143,11 +143,11 @@ class _DatePickerState extends State<DatePicker> {
         widget.dayTextStyle.copyWith(color: widget.selectedTextColor);
 
     this.deactivatedDateStyle =
-        widget.dateTextStyle.copyWith(color: widget.deactivatedColor);
+        widget.dateTextStyle.copyWith(color: widget.deactivatedTextColor);
     this.deactivatedMonthStyle =
-        widget.monthTextStyle.copyWith(color: widget.deactivatedColor);
+        widget.monthTextStyle.copyWith(color: widget.deactivatedTextColor);
     this.deactivatedDayStyle =
-        widget.dayTextStyle.copyWith(color: widget.deactivatedColor);
+        widget.dayTextStyle.copyWith(color: widget.deactivatedTextColor);
 
     super.initState();
   }
