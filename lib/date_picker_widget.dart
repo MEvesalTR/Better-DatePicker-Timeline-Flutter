@@ -32,11 +32,11 @@ class DatePicker extends StatefulWidget {
   /// Padding for the Date Widget
   final EdgeInsets padding;
 
+  /// Decoration for the selected Date
+  final BoxDecoration decoration;
+
   /// Text color for the selected Date
   final Color selectedTextColor;
-
-  /// Background color for the selector
-  final Color selectionColor;
 
   /// Text Color for the deactivated dates
   final Color deactivatedColor;
@@ -90,7 +90,10 @@ class DatePicker extends StatefulWidget {
     this.dayTextStyle = defaultDayTextStyle,
     this.dateTextStyle = defaultDateTextStyle,
     this.selectedTextColor = Colors.white,
-    this.selectionColor = AppColors.defaultSelectionColor,
+    this.decoration = const BoxDecoration(
+      borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+      color: AppColors.defaultSelectionColor,
+    ),
     this.deactivatedColor = AppColors.defaultDeactivatedColor,
     this.initialSelectedDate,
     this.activeDates,
@@ -228,8 +231,12 @@ class _DatePickerState extends State<DatePicker> {
                           : widget.dayTextStyle,
                   width: widget.width,
                   locale: widget.locale,
-                  selectionColor:
-                      isSelected ? widget.selectionColor : Colors.transparent,
+                  decoration: isSelected
+                      ? widget.decoration
+                      : BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                          color: Colors.transparent,
+                        ),
                   onDateSelected: (selectedDate) {
                     // Don't notify listener if date is deactivated
                     if (isDeactivated) return;
@@ -262,8 +269,12 @@ class _DatePickerState extends State<DatePicker> {
                           : widget.dayTextStyle,
                   width: widget.width,
                   locale: widget.locale,
-                  selectionColor:
-                      isSelected ? widget.selectionColor : Colors.transparent,
+                  decoration: isSelected
+                      ? widget.decoration
+                      : BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                          color: Colors.transparent,
+                        ),
                   onDateSelected: (selectedDate) {
                     // Don't notify listener if date is deactivated
                     if (isDeactivated) return;
