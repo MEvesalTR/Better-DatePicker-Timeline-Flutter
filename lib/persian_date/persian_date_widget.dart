@@ -1,6 +1,6 @@
-import 'package:date_picker_timeline/gestures/tap.dart';
-import 'package:date_picker_timeline/persian_date/persian_date.dart';
-import 'package:date_picker_timeline/persian_date/persian_number.dart';
+import 'package:better_date_picker_timeline/gestures/tap.dart';
+import 'package:better_date_picker_timeline/persian_date/persian_date.dart';
+import 'package:better_date_picker_timeline/persian_date/persian_number.dart';
 import 'package:flutter/material.dart';
 
 class PersianDateWidget extends StatelessWidget {
@@ -26,10 +26,11 @@ class PersianDateWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       customBorder: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(8.0))),
+        borderRadius: BorderRadius.circular(8),
+      ),
       child: Container(
         width: width,
-        margin: const EdgeInsets.all(3.0),
+        margin: const EdgeInsets.all(4),
         decoration: decoration,
         child: Padding(
           padding: const EdgeInsets.all(8),

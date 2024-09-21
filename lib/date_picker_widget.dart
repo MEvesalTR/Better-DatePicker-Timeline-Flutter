@@ -1,9 +1,9 @@
-import 'package:date_picker_timeline/gregorian_date/gregorian_date_widget.dart';
-import 'package:date_picker_timeline/extra/color.dart';
-import 'package:date_picker_timeline/extra/style.dart';
-import 'package:date_picker_timeline/gestures/tap.dart';
-import 'package:date_picker_timeline/persian_date/persian_date.dart';
-import 'package:date_picker_timeline/persian_date/persian_date_widget.dart';
+import 'package:better_date_picker_timeline/gregorian_date/gregorian_date_widget.dart';
+import 'package:better_date_picker_timeline/extra/color.dart';
+import 'package:better_date_picker_timeline/extra/style.dart';
+import 'package:better_date_picker_timeline/gestures/tap.dart';
+import 'package:better_date_picker_timeline/persian_date/persian_date.dart';
+import 'package:better_date_picker_timeline/persian_date/persian_date_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
@@ -85,20 +85,20 @@ class DatePicker extends StatefulWidget {
     this.controller,
     this.scrollDirection = Axis.horizontal,
     this.physics = const BouncingScrollPhysics(),
-    this.padding = const EdgeInsets.symmetric(horizontal: 16),
+    this.padding = EdgeInsets.zero,
     this.monthTextStyle = defaultMonthTextStyle,
     this.dayTextStyle = defaultDayTextStyle,
     this.dateTextStyle = defaultDateTextStyle,
     this.selectedTextColor = Colors.white,
     this.decoration = const BoxDecoration(
-      borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+      borderRadius: const BorderRadius.all(Radius.circular(8)),
       color: AppColors.defaultSelectionColor,
     ),
     this.deactivatedTextColor = AppColors.defaultDeactivatedColor,
     this.initialSelectedDate,
     this.activeDates,
     this.inactiveDates,
-    this.daysCount = 500,
+    this.daysCount = 30,
     this.onDateChange,
     this.locale = "en_US",
     this.calendarType = CalendarType.gregorianDate,
@@ -234,7 +234,7 @@ class _DatePickerState extends State<DatePicker> {
                   decoration: isSelected
                       ? widget.decoration
                       : BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                          borderRadius: BorderRadius.circular(8),
                           color: Colors.transparent,
                         ),
                   onDateSelected: (selectedDate) {
