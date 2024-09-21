@@ -27,11 +27,9 @@ class PersianDate {
       jm = 7 + ((days - 186) ~/ 30);
       jd = 1 + (days - 186) % 30;
     }
-    int month =
-    twoDigits ? int.parse(jm.toString().padLeft(2, '0')) : jm;
-    int jDay =
-    twoDigits ? int.parse(jd.toString().padLeft(2, '0')) : jd;
-    return DateTime(jY,month, jDay);
+    int month = twoDigits ? int.parse(jm.toString().padLeft(2, '0')) : jm;
+    int jDay = twoDigits ? int.parse(jd.toString().padLeft(2, '0')) : jd;
+    return DateTime(jY, month, jDay);
   }
 
   static persianMonthNames(int m) {
@@ -113,11 +111,12 @@ class PersianDate {
       if (gD <= montDays[i]) break;
       gD -= montDays[i];
     }
-    return DateTime(gY,i,gD);
+    return DateTime(gY, i, gD);
   }
 
   static persianWeeklyName(DateTime dateTime) {
-    DateTime gregorianDate = jalaliToGregorian(dateTime.year, dateTime.month, dateTime.day);
+    DateTime gregorianDate =
+        jalaliToGregorian(dateTime.year, dateTime.month, dateTime.day);
     switch (gregorianDate.weekday) {
       case 1:
         return "دوشنبه";
